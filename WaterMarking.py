@@ -1,3 +1,4 @@
+# Python code for picture Watermarking, 03/03/2016   
 from PIL import Image, ImageDraw
 import glob
 import os
@@ -33,7 +34,7 @@ for picname in glob.glob(indir):
     waterdraw = ImageDraw.Draw(WaterMark, "RGBA")
     
     #The position and text the new image is stated
-    waterdraw.text((width-100, height-15),"(c) K. Michail")
+    waterdraw.text((width-100, height-15)," ©  K. Michail ")
     
     #Use a filter 
     watermask = WaterMark.convert("L").point(lambda x: min(x, 150))
@@ -44,8 +45,7 @@ for picname in glob.glob(indir):
     #Merge the 2 pictures 
     im.paste(WaterMark, None, WaterMark)       
     
-    #Saving the watermarked pictures 
+    #Saving the watermarked pictures (why does it have a smaller size?)
+    # (Do I loose any picture information ?) 
     im.save(picname,"JPEG")
     print "Size of output string #", counter, "(bytes):", sys.getsizeof(im)  
-    
- 
