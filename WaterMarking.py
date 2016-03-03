@@ -5,7 +5,7 @@ import sys
 
 #Bellow is the path to the folder "Watermarked"
 #"Watermarked" is the folder with the photographs that I want to watermark 
-indir = "/Users/Michail_mech/desktop/programming/Python/Watermarking/Watermarked/*.*"
+indir = "/.../Watermarked/*.*"
 counter = 0
 
 def getSize(fl):
@@ -38,7 +38,7 @@ for picname in glob.glob(indir):
     #Use a filter 
     watermask = WaterMark.convert("L").point(lambda x: min(x, 150))
     
-    #
+    #Implementing the mask 
     WaterMark.putalpha(watermask)
     
     #Merge the 2 pictures 
